@@ -1,25 +1,23 @@
-# Reaction Packs
+# Really didnt care to spend more than 20 minutes making this
 
-![Screenshot](https://addons.cdn.mozilla.net/user-media/previews/full/172/172164.png?modified=1458235691)
+## What is It
+Plane Reacc Only. Are you a n g e r y @ Facebook? Install this if you want to, or don't.
 
-Choose your own Facebook reaction pictures! View Packs at http://www.reactionpacks.com/
+## Installing on Google Chrome:
+1. Download this repo (unzip folder if you downloaded the zip)
+2. Open the Extension Management page by navigating to chrome://extensions.
+3. The Extension Management page can also be opened by clicking on the Chrome menu, hovering over More Tools then selecting Extensions.
+4. Enable Developer Mode by clicking the toggle switch next to Developer mode.
+5. Click the LOAD UNPACKED button and select the extension directory.
 
+## Installing on all other browsers:
+1. [Install Google Chrome](https://www.google.com/chrome/)
+2. Follow instructions for *Installing on Google Chrome*
 
-## Get the Extension
+or
 
-**Chrome**: https://chrome.google.com/webstore/detail/reaction-packs-for-facebo/djcfkadjljnkkbojdgocopcbdbnmpcan
+1. Google it
 
-**Firefox**: https://addons.mozilla.org/en-US/firefox/addon/reaction-packs-for-facebook/
-
-
-## TODO:
-
-### Extension
-
-* Update pack live instead of requiring a refresh
-* Add a status indicator somewhere
-
-### Site
-
-* "Request changes" flow for pack creators.
-* Link to pack creator's URL
+## Notes:
+- It doesn't work when you hover over the like/react button. 
+- If someone comes up with a way for me to implement a fix for the above in less time than it takes me to use the bathroom at work, I'll gladly implement it.

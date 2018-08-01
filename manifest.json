@@ -1,32 +1,16 @@
 {
-  "manifest_version": 2,
-  "name": "Reaction Packs for Facebook",
-  "version": "2.0.0",
-
-  "description": "Choose your own Facebook reaction pictures! View Packs at http://www.reactionpacks.com/",
-  "icons": {
-    "16": "icons/icon16.png",
-    "48": "icons/icon48.png",
-    "128": "icons/icon128.png"
-  },
-
+  "manifest_version": 1,
+  "name": "Plane Reacc Only",
+  "version": "1.0.0",
+  "description": "a n g e r y @ Facebook, let them know! Install Plane Reacc Only",
   "permissions": [
-    "*://*.facebook.com/*",
-    "*://*.reactionpacks.com/*",
-    "alarms",
-    "storage"
+    "*://*.facebook.com/*"
   ],
   "content_scripts": [
     {
       "matches": ["*://*.facebook.com/*"],
       "js": ["facebook.js"],
       "run_at": "document_start"
-    },
-    {
-      "matches": ["*://*.reactionpacks.com/*"],
-      "js": ["reactionpacks.js"],
-      "css": ["reactionpacks.css"],
-      "run_at": "document_end"
     }
   ]
 }

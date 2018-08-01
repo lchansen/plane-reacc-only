@@ -1,29 +1,3 @@
-if (typeof browser === 'undefined') {
-    //noinspection ES6ConvertVarToLetConst
-    var browser = chrome;
-}
-
-const STORAGE = browser.storage.local;
-
-/**
- * Metadata needed to render custom reaction sprites correctly. Of the
- * form:
- *
- * `internal reaction id`: {
- *     "name": `public-facing reaction name`,
- *     "wwwBlingSelector": `CSS selector for www.fb, web.fb, beta.fb`,
- *     "touchBlingSelector": `CSS selector for touch.fb`,
- *     "offsetBling": `background-position offset for image sprite in bling`,
- *     "offsetButton": `background-position offset for animated svg hovers`,
- *     "id": `data-reaction selector for animated svg hovers`
- * }
- *
- * Notes:
- *
- * ._iu-: reaction toolbar
- * ._iuw: reaction button
- * ._iuw._iuy: currently hovered reaction button
- */
 const REACTIONS = {
     "like": {
         "id": 1,
@@ -81,18 +55,16 @@ const REACTIONS = {
     }
 };
 
-
-function buildPackStylesheet(pack) {
+function buildStylesheet() {
     return Array.prototype.reduce.call(Object.keys(REACTIONS), (sum, label) => {
         const reaction = REACTIONS[label];
-
         return sum + `
         /**
          * ${reaction.name}
          */
         ._2p7a.${reaction.cssId}, ._9--.${reaction.cssId}, /* www bling */
         ${reaction.touchBlingSelector} { /* touch bling */ 
-            background-image: url(${pack.px32}) !important;
+            background-image: url(https://s33.postimg.cc/qqyzbumbv/pack32.png) !important;
             background-size: 16px 128px !important;
             background-position: ${reaction.offsetBling} !important;
         }
@@ -106,10 +78,10 @@ function buildPackStylesheet(pack) {
     }, "") +
     `
     ._iuz ._2p78 { /* www button image, non-HiDPI */
-        background-image: url(${pack.px48}) !important;
+        background-image: url(https://s33.postimg.cc/uncb7uf17/pack48.png) !important;
     }
     ._iuw ._2p78 { /* www button image, HiDPI */
-        background-image: url(${pack.px96}) !important;
+        background-image: url(https://s33.postimg.cc/hj6qv5up7/pack96.png) !important;
         background-size: 48px 384px !important;
     }
     ._uah ._2p78 { /* touch toolbar */
@@ -118,25 +90,18 @@ function buildPackStylesheet(pack) {
     `;
 }
 
-
 function createRpStyleElement() {
     const styleElem = document.createElement('style');
-    styleElem.id = 'reaction-pack-sheet';
+    styleElem.id = 'plane-reacc-only';
     styleElem.type = 'text/css';
     document.documentElement.appendChild(styleElem);
     return styleElem;
 }
 
-
 function setPageStyle(sheet) {
-    const styleElem = document.getElementById('reaction-pack-sheet') || createRpStyleElement();
+    const styleElem = document.getElementById('plane-reacc-only') || createRpStyleElement();
     styleElem.textContent = sheet;
 }
 
-
-STORAGE.get('pack', (store) => {
-    if (store.pack) {
-        const stylesheet = buildPackStylesheet(store.pack);
-        setPageStyle(stylesheet);
-    }
-});
+const stylesheet = buildStylesheet();
+setPageStyle(stylesheet);
